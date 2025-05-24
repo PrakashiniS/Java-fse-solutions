@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .welcomebanner {
+            background-color:blue;
+            padding: 20px;
+            text-align: center;
+        }
+        .highlight {
+            background-image: linear-gradient(to right, #ff7e5f, #4fb13c);
+            color:black;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#events">Event</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li> <a href="help.html" target="_blank">Help</a></li>
+        </ul>
+    </nav>
+    <div id="welcomebanner" class="welcomebanner">
+        <h1>Welcome to My Website</h1>
+       
+    </div>
+
+    <main>
+      
+        
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>Community Clean-up - March 15, 2023</li>
+                <li>Local Art Fair - April 20, 2023</li>
+                <li>Charity Run - May 10, 2023</li>
+            </ul>
+
+            <h3><b>Special Offers</b></h3>
+            <p>Don't miss out on our special offers for upcoming events!</p>
+    <ul>
+        <li><span style="color:red; font-weight: bold;">10% off</span> for early registrations</li>
+        <li>Group discounts available</li>
+    </ul>
+        </section>
+        <section id="highlights">
+            <h2>Highlights</h2>
+            <p class="highlight">Join us for our annual community festival!</p>
+            <p class="highlight">Volunteer opportunities available for all events.</p>
+            <p class="highlight">Follow us on social media for the latest updates.</p>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>You can reach us at [email protected]</p>
+            <h2>Event Registration Form</h2>
+
+  <form onsubmit="handleSubmit(event)">
+    <label>
+      Name:
+      <input type="text" name="name" placeholder="Your Name" required autofocus>
+    </label>
+    <br><br>
+
+    <label>
+        
+      Email:
+      <input type="email" name="email" placeholder="Your Email" required>
+    </label>
+    <br><br>
+
+    <label>
+      Date:
+      <input type="date" name="date" required>
+    </label>
+    <br><br>
+
+    <label>
+      Event Type:
+      <input type="text" name="event" placeholder="e.g., Singing, Charity Run" required>
+    </label>
+    <br><br>
+
+    <label>
+      Message:
+      <textarea name="message" placeholder="Your message here..." required></textarea>
+    </label>
+    <br><br>
+
+    <button type="submit">Submit</button>
+    <br><br>
+
+    <output id="formOutput"></output>
+  </form>
+
+
+
+
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a community-focused organization dedicated to bringing people together through local events and activities.</p>
+            <p>Our mission is to foster a sense of community and encourage participation in local initiatives.</p>
+            <p>Join us in making our community a better place!</p>
+
+        </section>
+    </section>
+   
+<table>
+    <caption>Event Images</caption>
+    <tr>
+        <th>Image</th>
+        <th>Caption</th>
+    </tr>
+    <tr>
+        <td><img src="https://tse1.mm.bing.net/th?id=OIP.vvfwhRhJpScq2MpT5kT4ZAHaE8&pid=Api&P=0&h=180" alt="Singing" title="Singing" style="border: black solid 1px;"></td>
+        <td>Community Singing</td>
+    </tr>
+    
+    <tr>
+        <td><img src="https://tse4.mm.bing.net/th?id=OIP.gNAn9eK1g6_s0F1OEe_WPQHaEW&pid=Api&P=0&h=180" alt="Running" title="Running" style="border: black solid 1px;"></td>
+        <td>Charity Run</td>
+    </tr>
+   
+</table>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+      <script>
+    function handleSubmit(event) {
+      event.preventDefault(); 
+      document.getElementById("formOutput").textContent = "Form submitted successfully!";
+    }
+  </script>
+</body>
+</html>
