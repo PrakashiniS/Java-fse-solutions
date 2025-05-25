@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Local Community Event Portal</title>
+        <link rel="stylesheet" href="styles.css" />
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -83,7 +85,160 @@
                 font-weight: bold;
                 margin-left: 10px;
             }
+            h1 {
+                color: #e74c3c;
+            }
         </style>
+    </head>
+    <body>
+        <header id="mainHeader">
+            <h1>Community Events Portal</h1>
+        </header>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+            <a href="help.html" target="_blank">Help</a>
+        </nav>
+
+        <section id="home">
+            <div id="welcomeBanner">
+                <h2>Welcome to Our Community</h2>
+                <p>
+                    Join us for exciting local events! We host a variety of activities throughout the year, from
+                    cultural festivals to sports tournaments.
+                    <span style="color: red; font-weight: bold">Special offer inside!</span>
+                </p>
+                <p class="highlight">
+                    Register now to get 20% off your first event! Limited time offer for new members.
+                </p>
+            </div>
+
+            <div class="news-section">
+                <h3>Latest Community News</h3>
+                <p>
+                    Our annual Summer Festival is just around the corner! Join us on June 15th for a day filled with
+                    music, food, and fun activities for all ages. The festival will feature local artists, food vendors,
+                    and exciting games. Don't miss out on this wonderful opportunity to connect with your community!
+                </p>
+                <p>
+                    We're excited to announce our new Youth Sports Program starting next month. This program aims to
+                    promote physical activity and teamwork among young community members. Registration is now open for
+                    basketball, soccer, and swimming classes. Scholarships are available for families in need.
+                </p>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <div class="event-card">
+                <table>
+                    <tr>
+                        <td>
+                            <img
+                                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
+                                alt="Community Festival"
+                                title="Annual Community Festival"
+                                class="event-img"
+                                ondblclick="enlargeImage(this)"
+                            />
+                            <div class="event-caption">Annual Community Festival - June 15, 2024</div>
+                        </td>
+                        <td>
+                            <img
+                                src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500"
+                                alt="Music Concert"
+                                title="Summer Music Night"
+                                class="event-img"
+                                ondblclick="enlargeImage(this)"
+                            />
+                            <div class="event-caption">Summer Music Night - July 20, 2024</div>
+                        </td>
+                        <td>
+                            <img
+                                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500"
+                                alt="Sports Event"
+                                title="Community Sports Day"
+                                class="event-img"
+                                ondblclick="enlargeImage(this)"
+                            />
+                            <div class="event-caption">Community Sports Day - August 5, 2024</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Event Registration</h2>
+            <form onsubmit="return submitForm()">
+                <div>
+                    <label>Name:</label>
+                    <input type="text" name="name" required autofocus placeholder="Your full name" />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" required placeholder="your.email@example.com" />
+                </div>
+                <div>
+                    <label>Phone:</label>
+                    <input type="tel" name="phone" onblur="validatePhone(this)" placeholder="10-digit number" />
+                </div>
+                <div>
+                    <label>Date:</label>
+                    <input type="date" name="date" required />
+                </div>
+                <div>
+                    <label>Event Type:</label>
+                    <select name="event" id="eventType" onchange="showFee(this); savePreference(this)">
+                        <option value="workshop">Workshop</option>
+                        <option value="concert">Concert</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                    <span id="eventFee"></span>
+                </div>
+                <div>
+                    <label>Message:</label>
+                    <textarea
+                        name="message"
+                        rows="4"
+                        onkeyup="countChars(this)"
+                        placeholder="Tell us about your interests and any special requirements..."
+                    ></textarea>
+                    <span id="charCount">0 characters</span>
+                </div>
+                <button type="submit">Register</button>
+                <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+                <output id="formOutput"></output>
+            </form>
+        </section>
+        <section>
+            <h2>Event Promo</h2>
+            <div class="video-container">
+                <video width="560" height="315" controls oncanplay="showVideoReady()">
+                    <source
+                        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-description">
+                    Watch highlights from our previous community events and get a glimpse of what's coming this summer!
+                </p>
+            </div>
+            <p id="videoStatus"></p>
+        </section>
+
+        <section>
+            <h2>Find Nearby Events</h2>
+            <button onclick="findLocation()">Find Nearby Events</button>
+            <p id="geo"></p>
+        </section>
+
+        <footer class="text-center mt-2">
+            <p>&copy; 2024 Community Events Portal</p>
+        </footer>
         <script>
             function submitForm() {
                 const output = document.getElementById("formOutput");
@@ -155,154 +310,5 @@
                 return "You have unsaved changes. Are you sure you want to leave?";
             };
         </script>
-    </head>
-    <body>
-        <nav>
-            <a href="#home">Home</a> | <a href="#events">Events</a> | <a href="#contact">Contact</a> |
-            <a href="help.html" target="_blank">Help</a>
-        </nav>
-
-        <section id="home">
-            <div id="welcomeBanner">
-                <h1>Welcome to Community Events</h1>
-                <p>
-                    Join us for exciting local events!
-                    <span style="color: red; font-weight: bold">Special offer inside!</span>
-                </p>
-                <p class="highlight">Register now to get 20% off your first event!</p>
-            </div>
-        </section>
-
-        <section id="events">
-            <h2>Past Events Gallery</h2>
-            <table>
-                <tr>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
-                            alt="Community Festival"
-                            title="Annual Community Festival"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Annual Community Festival</div>
-                    </td>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500"
-                            alt="Music Concert"
-                            title="Summer Music Night"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Summer Music Night</div>
-                    </td>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500"
-                            alt="Sports Event"
-                            title="Community Sports Day"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Community Sports Day</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=500"
-                            alt="Art Exhibition"
-                            title="Local Art Show"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Local Art Show</div>
-                    </td>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
-                            alt="Food Festival"
-                            title="Food & Wine Festival"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Food & Wine Festival</div>
-                    </td>
-                    <td>
-                        <img
-                            src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500"
-                            alt="Charity Run"
-                            title="Annual Charity Run"
-                            class="event-img"
-                            ondblclick="enlargeImage(this)"
-                        />
-                        <div class="event-caption">Annual Charity Run</div>
-                    </td>
-                </tr>
-            </table>
-        </section>
-
-        <section id="contact">
-            <h2>Event Registration</h2>
-            <form onsubmit="return submitForm()">
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="name" required autofocus placeholder="Your full name" />
-                </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" name="email" required placeholder="your.email@example.com" />
-                </div>
-                <div>
-                    <label>Phone:</label>
-                    <input type="tel" name="phone" onblur="validatePhone(this)" placeholder="10-digit number" />
-                </div>
-                <div>
-                    <label>Date:</label>
-                    <input type="date" name="date" required />
-                </div>
-                <div>
-                    <label>Event Type:</label>
-                    <select name="event" id="eventType" onchange="showFee(this); savePreference(this)">
-                        <option value="workshop">Workshop</option>
-                        <option value="concert">Concert</option>
-                        <option value="sports">Sports</option>
-                    </select>
-                    <span id="eventFee"></span>
-                </div>
-                <div>
-                    <label>Message:</label>
-                    <textarea
-                        name="message"
-                        rows="4"
-                        onkeyup="countChars(this)"
-                        placeholder="Tell us about your interests..."
-                    ></textarea>
-                    <span id="charCount">0 characters</span>
-                </div>
-                <button type="submit">Register</button>
-                <button type="button" onclick="clearPreferences()">Clear Preferences</button>
-                <output id="formOutput"></output>
-            </form>
-        </section>
-        <section>
-            <h2>Event Promo</h2>
-            <video width="560" height="315" controls oncanplay="showVideoReady()">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <p id="videoStatus"></p>
-        </section>
-
-        <section>
-            <h2>Find Nearby Events</h2>
-            <button onclick="findLocation()">Find Nearby Events</button>
-            <p id="geo"></p>
-        </section>
-
-        <footer>
-            <p>&copy; 2024 Community Events Portal</p>
-        </footer>
     </body>
 </html>
