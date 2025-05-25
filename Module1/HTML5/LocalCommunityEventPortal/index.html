@@ -85,19 +85,16 @@
             }
         </style>
         <script>
-            // Form submission and validation
             function submitForm() {
                 const output = document.getElementById("formOutput");
                 output.value = "Thank you for registering!";
                 return false;
             }
 
-            // Character counter
             function countChars(el) {
                 document.getElementById("charCount").textContent = el.value.length + " characters";
             }
 
-            // Phone validation
             function validatePhone(el) {
                 if (!/^\d{10}$/.test(el.value)) {
                     alert("Please enter a valid 10-digit phone number");
@@ -105,36 +102,30 @@
                 }
             }
 
-            // Event fee calculation
             function showFee(el) {
                 const fee = el.value === "concert" ? 20 : 10;
                 document.getElementById("eventFee").textContent = "Fee: $" + fee;
             }
 
-            // Image enlargement
             function enlargeImage(el) {
                 el.style.width = "300px";
                 el.style.height = "225px";
             }
 
-            // Video ready message
             function showVideoReady() {
                 document.getElementById("videoStatus").textContent = "Video ready to play";
             }
 
-            // Save preferences
             function savePreference(el) {
                 localStorage.setItem("preferredEvent", el.value);
             }
 
-            // Clear preferences
             function clearPreferences() {
                 localStorage.clear();
                 sessionStorage.clear();
                 alert("Preferences cleared!");
             }
 
-            // Geolocation
             function findLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -152,7 +143,6 @@
                 }
             }
 
-            // Load saved preferences
             window.onload = function () {
                 const pref = localStorage.getItem("preferredEvent");
                 if (pref) {
@@ -161,20 +151,17 @@
                 }
             };
 
-            // Warn on page exit
             window.onbeforeunload = function () {
                 return "You have unsaved changes. Are you sure you want to leave?";
             };
         </script>
     </head>
     <body>
-        <!-- Navigation -->
         <nav>
             <a href="#home">Home</a> | <a href="#events">Events</a> | <a href="#contact">Contact</a> |
             <a href="help.html" target="_blank">Help</a>
         </nav>
 
-        <!-- Home Section -->
         <section id="home">
             <div id="welcomeBanner">
                 <h1>Welcome to Community Events</h1>
@@ -186,7 +173,6 @@
             </div>
         </section>
 
-        <!-- Events Section -->
         <section id="events">
             <h2>Past Events Gallery</h2>
             <table>
@@ -257,7 +243,6 @@
             </table>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Event Registration</h2>
             <form onsubmit="return submitForm()">
@@ -301,8 +286,6 @@
                 <output id="formOutput"></output>
             </form>
         </section>
-
-        <!-- Video Section -->
         <section>
             <h2>Event Promo</h2>
             <video width="560" height="315" controls oncanplay="showVideoReady()">
@@ -312,14 +295,12 @@
             <p id="videoStatus"></p>
         </section>
 
-        <!-- Geolocation Section -->
         <section>
             <h2>Find Nearby Events</h2>
             <button onclick="findLocation()">Find Nearby Events</button>
             <p id="geo"></p>
         </section>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2024 Community Events Portal</p>
         </footer>
