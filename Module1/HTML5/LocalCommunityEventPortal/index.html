@@ -1,145 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .welcomebanner {
-            background-color:blue;
-            padding: 20px;
-            text-align: center;
-        }
-        .highlight {
-            background-image: linear-gradient(to right, #ff7e5f, #4fb13c);
-            color:black;
-            padding: 10px;
-            border-radius: 5px;
+    <head>
+        <meta charset="UTF-8" />
+        <title>Local Community Event Portal</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+            #welcomeBanner {
+                background-color: lightblue;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+            }
+            .highlight {
+                background-color: yellow;
+                padding: 2px 5px;
+            }
+            .event-img {
+                width: 200px;
+                height: 150px;
+                object-fit: cover;
+                border: 2px solid #333;
+                margin: 5px;
+            }
+            table {
+                border-spacing: 10px;
+                margin: 20px auto;
+            }
+            td {
+                text-align: center;
+            }
+            .event-caption {
+                font-size: 0.9em;
+                color: #666;
+                margin-top: 5px;
+            }
+            form {
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            input,
+            select,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin: 5px 0;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+            button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            #videoStatus {
+                color: green;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            #geo {
+                margin-top: 10px;
+                font-style: italic;
+            }
+            #charCount {
+                color: #666;
+                font-size: 0.9em;
+            }
+            #eventFee {
+                color: #4caf50;
+                font-weight: bold;
+                margin-left: 10px;
+            }
+        </style>
+        <script>
+            // Form submission and validation
+            function submitForm() {
+                const output = document.getElementById("formOutput");
+                output.value = "Thank you for registering!";
+                return false;
+            }
 
-        }
+            // Character counter
+            function countChars(el) {
+                document.getElementById("charCount").textContent = el.value.length + " characters";
+            }
 
-    </style>
-</head>
-<body>
-    <nav>
+            // Phone validation
+            function validatePhone(el) {
+                if (!/^\d{10}$/.test(el.value)) {
+                    alert("Please enter a valid 10-digit phone number");
+                    el.focus();
+                }
+            }
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#events">Event</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li> <a href="help.html" target="_blank">Help</a></li>
-        </ul>
-    </nav>
-    <div id="welcomebanner" class="welcomebanner">
-        <h1>Welcome to My Website</h1>
-       
-    </div>
+            // Event fee calculation
+            function showFee(el) {
+                const fee = el.value === "concert" ? 20 : 10;
+                document.getElementById("eventFee").textContent = "Fee: $" + fee;
+            }
 
-    <main>
-      
-        
+            // Image enlargement
+            function enlargeImage(el) {
+                el.style.width = "300px";
+                el.style.height = "225px";
+            }
+
+            // Video ready message
+            function showVideoReady() {
+                document.getElementById("videoStatus").textContent = "Video ready to play";
+            }
+
+            // Save preferences
+            function savePreference(el) {
+                localStorage.setItem("preferredEvent", el.value);
+            }
+
+            // Clear preferences
+            function clearPreferences() {
+                localStorage.clear();
+                sessionStorage.clear();
+                alert("Preferences cleared!");
+            }
+
+            // Geolocation
+            function findLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function (position) {
+                            document.getElementById("geo").textContent =
+                                "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+                        },
+                        function (error) {
+                            document.getElementById("geo").textContent = "Error: " + error.message;
+                        },
+                        {enableHighAccuracy: true, timeout: 5000}
+                    );
+                } else {
+                    document.getElementById("geo").textContent = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            // Load saved preferences
+            window.onload = function () {
+                const pref = localStorage.getItem("preferredEvent");
+                if (pref) {
+                    document.getElementById("eventType").value = pref;
+                    showFee(document.getElementById("eventType"));
+                }
+            };
+
+            // Warn on page exit
+            window.onbeforeunload = function () {
+                return "You have unsaved changes. Are you sure you want to leave?";
+            };
+        </script>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <a href="#home">Home</a> | <a href="#events">Events</a> | <a href="#contact">Contact</a> |
+            <a href="help.html" target="_blank">Help</a>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="home">
+            <div id="welcomeBanner">
+                <h1>Welcome to Community Events</h1>
+                <p>
+                    Join us for exciting local events!
+                    <span style="color: red; font-weight: bold">Special offer inside!</span>
+                </p>
+                <p class="highlight">Register now to get 20% off your first event!</p>
+            </div>
+        </section>
+
+        <!-- Events Section -->
         <section id="events">
-            <h2>Upcoming Events</h2>
-            <ul>
-                <li>Community Clean-up - March 15, 2023</li>
-                <li>Local Art Fair - April 20, 2023</li>
-                <li>Charity Run - May 10, 2023</li>
-            </ul>
-
-            <h3><b>Special Offers</b></h3>
-            <p>Don't miss out on our special offers for upcoming events!</p>
-    <ul>
-        <li><span style="color:red; font-weight: bold;">10% off</span> for early registrations</li>
-        <li>Group discounts available</li>
-    </ul>
+            <h2>Past Events Gallery</h2>
+            <table>
+                <tr>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
+                            alt="Community Festival"
+                            title="Annual Community Festival"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Annual Community Festival</div>
+                    </td>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500"
+                            alt="Music Concert"
+                            title="Summer Music Night"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Summer Music Night</div>
+                    </td>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500"
+                            alt="Sports Event"
+                            title="Community Sports Day"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Community Sports Day</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=500"
+                            alt="Art Exhibition"
+                            title="Local Art Show"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Local Art Show</div>
+                    </td>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
+                            alt="Food Festival"
+                            title="Food & Wine Festival"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Food & Wine Festival</div>
+                    </td>
+                    <td>
+                        <img
+                            src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500"
+                            alt="Charity Run"
+                            title="Annual Charity Run"
+                            class="event-img"
+                            ondblclick="enlargeImage(this)"
+                        />
+                        <div class="event-caption">Annual Charity Run</div>
+                    </td>
+                </tr>
+            </table>
         </section>
-        <section id="highlights">
-            <h2>Highlights</h2>
-            <p class="highlight">Join us for our annual community festival!</p>
-            <p class="highlight">Volunteer opportunities available for all events.</p>
-            <p class="highlight">Follow us on social media for the latest updates.</p>
+
+        <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>You can reach us at [email protected]</p>
-            <h2>Event Registration Form</h2>
-
-  <form onsubmit="handleSubmit(event)">
-    <label>
-      Name:
-      <input type="text" name="name" placeholder="Your Name" required autofocus>
-    </label>
-    <br><br>
-
-    <label>
-        
-      Email:
-      <input type="email" name="email" placeholder="Your Email" required>
-    </label>
-    <br><br>
-
-    <label>
-      Date:
-      <input type="date" name="date" required>
-    </label>
-    <br><br>
-
-    <label>
-      Event Type:
-      <input type="text" name="event" placeholder="e.g., Singing, Charity Run" required>
-    </label>
-    <br><br>
-
-    <label>
-      Message:
-      <textarea name="message" placeholder="Your message here..." required></textarea>
-    </label>
-    <br><br>
-
-    <button type="submit">Submit</button>
-    <br><br>
-
-    <output id="formOutput"></output>
-  </form>
-
-
-
-
+            <h2>Event Registration</h2>
+            <form onsubmit="return submitForm()">
+                <div>
+                    <label>Name:</label>
+                    <input type="text" name="name" required autofocus placeholder="Your full name" />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" required placeholder="your.email@example.com" />
+                </div>
+                <div>
+                    <label>Phone:</label>
+                    <input type="tel" name="phone" onblur="validatePhone(this)" placeholder="10-digit number" />
+                </div>
+                <div>
+                    <label>Date:</label>
+                    <input type="date" name="date" required />
+                </div>
+                <div>
+                    <label>Event Type:</label>
+                    <select name="event" id="eventType" onchange="showFee(this); savePreference(this)">
+                        <option value="workshop">Workshop</option>
+                        <option value="concert">Concert</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                    <span id="eventFee"></span>
+                </div>
+                <div>
+                    <label>Message:</label>
+                    <textarea
+                        name="message"
+                        rows="4"
+                        onkeyup="countChars(this)"
+                        placeholder="Tell us about your interests..."
+                    ></textarea>
+                    <span id="charCount">0 characters</span>
+                </div>
+                <button type="submit">Register</button>
+                <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+                <output id="formOutput"></output>
+            </form>
         </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We are a community-focused organization dedicated to bringing people together through local events and activities.</p>
-            <p>Our mission is to foster a sense of community and encourage participation in local initiatives.</p>
-            <p>Join us in making our community a better place!</p>
 
+        <!-- Video Section -->
+        <section>
+            <h2>Event Promo</h2>
+            <video width="560" height="315" controls oncanplay="showVideoReady()">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <p id="videoStatus"></p>
         </section>
-    </section>
-   
-<table>
-    <caption>Event Images</caption>
-    <tr>
-        <th>Image</th>
-        <th>Caption</th>
-    </tr>
-    <tr>
-        <td><img src="https://tse1.mm.bing.net/th?id=OIP.vvfwhRhJpScq2MpT5kT4ZAHaE8&pid=Api&P=0&h=180" alt="Singing" title="Singing" style="border: black solid 1px;"></td>
-        <td>Community Singing</td>
-    </tr>
-    
-    <tr>
-        <td><img src="https://tse4.mm.bing.net/th?id=OIP.gNAn9eK1g6_s0F1OEe_WPQHaEW&pid=Api&P=0&h=180" alt="Running" title="Running" style="border: black solid 1px;"></td>
-        <td>Charity Run</td>
-    </tr>
-   
-</table>
-    </main>
-    <footer>
-        <p>&copy; 2023 My Website</p>
-    </footer>
-      <script>
-    function handleSubmit(event) {
-      event.preventDefault(); 
-      document.getElementById("formOutput").textContent = "Form submitted successfully!";
-    }
-  </script>
-</body>
+
+        <!-- Geolocation Section -->
+        <section>
+            <h2>Find Nearby Events</h2>
+            <button onclick="findLocation()">Find Nearby Events</button>
+            <p id="geo"></p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Community Events Portal</p>
+        </footer>
+    </body>
 </html>
