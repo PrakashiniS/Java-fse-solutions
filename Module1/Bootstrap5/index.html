@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Local Community Event Portal</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body class="bg-light">
+        <header class="bg-gradient bg-dark text-white py-4">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand" href="#">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        EventHub
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#home"> <i class="fas fa-home me-1"></i>Home </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="eventsDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                >
+                                    <i class="fas fa-calendar me-1"></i>Events
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#events">Upcoming Events</a></li>
+                                    <li><a class="dropdown-item" href="#eventSchedule">Event Schedule</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="#contact">Create Event</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#news"> <i class="fas fa-newspaper me-1"></i>News </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact"> <i class="fas fa-envelope me-1"></i>Contact </a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <div class="input-group">
+                                <input
+                                    class="form-control"
+                                    type="search"
+                                    placeholder="Search events..."
+                                    aria-label="Search"
+                                />
+                                <button class="btn btn-outline-light" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="d-flex">
+                            <button class="btn btn-outline-light me-2">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </button>
+                            <button class="btn btn-light"><i class="fas fa-user-plus me-1"></i>Register</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="bg-gradient bg-primary text-white text-center py-4 mb-4">
+            <h2>Join Our Community Events!</h2>
+            <p>Experience the best of local culture and community spirit</p>
+            <span class="bg-warning text-dark px-2 py-1 rounded">Special Offer: First event registration is free!</span>
+        </div>
+
+        <main>
+            <!-- Responsive Sidebar and Main Content -->
+            <div class="container">
+                <div class="row">
+                    <!-- Sidebar: Hidden on mobile, visible on md and up -->
+                    <div class="col-md-3 d-none d-md-block">
+                        <div class="card bg-dark text-white mb-4">
+                            <div class="card-header bg-primary">
+                                <h5 class="mb-0">Quick Navigation</h5>
+                            </div>
+                            <div class="list-group list-group-flush">
+                                <a href="#events" class="list-group-item list-group-item-action bg-dark text-white">
+                                    <i class="fas fa-calendar me-2"></i>Events
+                                </a>
+                                <a href="#news" class="list-group-item list-group-item-action bg-dark text-white">
+                                    <i class="fas fa-newspaper me-2"></i>News
+                                </a>
+                                <a
+                                    href="#eventSchedule"
+                                    class="list-group-item list-group-item-action bg-dark text-white"
+                                >
+                                    <i class="fas fa-clock me-2"></i>Schedule
+                                </a>
+                                <a href="#video" class="list-group-item list-group-item-action bg-dark text-white">
+                                    <i class="fas fa-video me-2"></i>Videos
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Additional Sidebar Content -->
+                        <div class="card bg-light mb-4 d-none d-lg-block">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Event Categories</h5>
+                            </div>
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <span class="badge bg-primary float-end">12</span>
+                                    Music Events
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <span class="badge bg-success float-end">8</span>
+                                    Food Festivals
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <span class="badge bg-warning float-end">5</span>
+                                    Sports Events
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <span class="badge bg-info float-end">3</span>
+                                    Art Exhibitions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content: Full width on mobile, 9 columns on md and up -->
+                    <div class="col-md-9">
+                        <!-- Plan Comparison Table -->
+                        <section class="mb-5">
+                            <div class="bg-light p-4 rounded">
+                                <h3 class="mb-4">Plan Comparison</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="p-3">Feature</th>
+                                                <th class="p-3 text-center">Basic</th>
+                                                <th class="p-3 text-center">Premium</th>
+                                                <th class="p-3 text-center">VIP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="p-3">Event Access</td>
+                                                <td class="p-3 text-center">✓</td>
+                                                <td class="p-3 text-center">✓</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3">VIP Seating</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">✓</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3">Backstage Access</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3">Complimentary Refreshments</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">✓</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3">Event Merchandise</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3">Priority Registration</td>
+                                                <td class="p-3 text-center">-</td>
+                                                <td class="p-3 text-center">✓</td>
+                                                <td class="p-3 text-center">✓</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Dashboard Stats Section -->
+                        <section class="row g-4 mb-5">
+                            <!-- Stats visible on all screens -->
+                            <div class="col-6 col-md-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Events</h5>
+                                        <h2 class="display-4">24</h2>
+                                        <p class="card-text">Active community events</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Participants</h5>
+                                        <h2 class="display-4">1.2k</h2>
+                                        <p class="card-text">Active community members</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional stats visible only on md and up -->
+                            <div class="col-6 col-md-3 d-none d-md-block">
+                                <div class="card bg-warning text-dark">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Upcoming</h5>
+                                        <h2 class="display-4">8</h2>
+                                        <p class="card-text">Events this month</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 d-none d-md-block">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Volunteers</h5>
+                                        <h2 class="display-4">156</h2>
+                                        <p class="card-text">Active volunteers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Width Content Sections -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Events Section with Responsive Display -->
+                        <section id="events" class="mb-5">
+                            <div class="bg-light p-4 rounded">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h2 class="text-primary mb-0">Upcoming Events</h2>
+                                    <!-- Filter buttons visible only on lg and up -->
+                                    <div class="d-none d-lg-flex gap-2">
+                                        <button class="btn btn-outline-primary">All</button>
+                                        <button class="btn btn-outline-primary">Music</button>
+                                        <button class="btn btn-outline-primary">Food</button>
+                                        <button class="btn btn-outline-primary">Sports</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Event cards with responsive display -->
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card mb-4 border-primary">
+                                            <img
+                                                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
+                                                class="card-img-top"
+                                                alt="Community Fair"
+                                                style="height: 200px; object-fit: cover"
+                                            />
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary">Annual Community Fair</h5>
+                                                <p class="card-text">
+                                                    Join us for a day of fun activities and community performances!
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-success">Upcoming</span>
+                                                    <!-- Additional info visible only on lg and up -->
+                                                    <small class="text-muted d-none d-lg-block">June 15, 2024</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Repeat similar structure for other event cards -->
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- News Section with Responsive Display -->
+                        <section id="news" class="bg-gradient bg-dark text-white p-4 mb-5 rounded">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="mb-0">Community Updates</h2>
+                                <!-- Social share buttons visible only on md and up -->
+                                <div class="d-none d-md-flex gap-2">
+                                    <button class="btn btn-light btn-sm"><i class="fab fa-facebook"></i></button>
+                                    <button class="btn btn-light btn-sm"><i class="fab fa-twitter"></i></button>
+                                    <button class="btn btn-light btn-sm"><i class="fab fa-instagram"></i></button>
+                                </div>
+                            </div>
+                            <article class="row">
+                                <div class="col-12">
+                                    <div class="bg-dark bg-opacity-50 p-4 rounded">
+                                        <h3>Latest Community News</h3>
+                                        <p>
+                                            Our community is buzzing with excitement as we prepare for the upcoming
+                                            summer events!
+                                        </p>
+                                        <!-- Extended content visible only on lg and up -->
+                                        <div class="d-none d-lg-block">
+                                            <p>
+                                                Local artists have been selected to perform at the music festival, and
+                                                we're proud to announce that over 50 local vendors will participate in
+                                                the food festival.
+                                            </p>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Special Announcement:</strong> Early bird registration is now open!
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <!-- Event Schedule with Color Coding -->
+                        <section id="eventSchedule" class="mb-5">
+                            <div class="bg-light p-4 rounded">
+                                <h2 class="text-primary mb-4">Community Event Schedule</h2>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Event</th>
+                                                <th>Date</th>
+                                                <th>Location</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-success">
+                                                <td>Community Fair</td>
+                                                <td>June 15, 2024</td>
+                                                <td>Central Community Park</td>
+                                                <td><span class="badge bg-success">Confirmed</span></td>
+                                            </tr>
+                                            <tr class="table-warning">
+                                                <td>Summer Music Festival</td>
+                                                <td>July 20, 2024</td>
+                                                <td>Downtown Community Square</td>
+                                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            </tr>
+                                            <tr class="table-info">
+                                                <td>Food Festival</td>
+                                                <td>August 5, 2024</td>
+                                                <td>Community Waterfront</td>
+                                                <td><span class="badge bg-info">New</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Video Section with Gradient Background -->
+                        <section id="video" class="bg-gradient bg-dark text-white p-4 mb-5 rounded">
+                            <h2 class="text-center mb-4">Community Event Promo</h2>
+                            <div class="ratio ratio-16x9 mb-3">
+                                <iframe
+                                    src="https://player.vimeo.com/video/824804225?h=4c8a442b42"
+                                    title="Community Festival Promo"
+                                    allowfullscreen
+                                    loading="lazy"
+                                ></iframe>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button
+                                    class="btn btn-light"
+                                    onclick="document.querySelector('iframe').requestFullscreen()"
+                                >
+                                    Fullscreen
+                                </button>
+                                <button class="btn btn-light" onclick="toggleVideoPlay()">Play/Pause</button>
+                            </div>
+                        </section>
+
+                        <section id="contact" class="mb-5">
+                            <h2 class="text-center mb-4">Get Involved</h2>
+                            <!-- Exercise 8.1: Enhanced Registration Form -->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form
+                                        id="eventForm"
+                                        class="needs-validation"
+                                        onsubmit="return handleSubmit(event)"
+                                        novalidate
+                                    >
+                                        <div class="row g-3">
+                                            <!-- Personal Information -->
+                                            <div class="col-md-6">
+                                                <label for="name" class="form-label">Full Name</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name"
+                                                        name="name"
+                                                        required
+                                                        autofocus
+                                                        placeholder="Enter your full name"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email" class="form-label">Email Address</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"
+                                                        ><i class="fas fa-envelope"></i
+                                                    ></span>
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id="email"
+                                                        name="email"
+                                                        required
+                                                        placeholder="Enter your email"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="phone" class="form-label">Phone Number</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                    <input
+                                                        type="tel"
+                                                        class="form-control"
+                                                        id="phone"
+                                                        name="phone"
+                                                        onblur="validatePhone(this)"
+                                                        placeholder="Enter your phone number"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="eventType" class="form-label">Event Type</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"
+                                                        ><i class="fas fa-calendar"></i
+                                                    ></span>
+                                                    <select
+                                                        class="form-select"
+                                                        id="eventType"
+                                                        name="eventType"
+                                                        onchange="updateFee(this)"
+                                                        required
+                                                    >
+                                                        <option value="">Select an event</option>
+                                                        <option value="fair">Community Fair</option>
+                                                        <option value="music">Music Festival</option>
+                                                        <option value="food">Food Festival</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!-- Additional Information -->
+                                            <div class="col-12">
+                                                <label for="message" class="form-label"
+                                                    >How would you like to participate?</label
+                                                >
+                                                <textarea
+                                                    class="form-control"
+                                                    id="message"
+                                                    name="message"
+                                                    rows="4"
+                                                    onkeyup="countCharacters(this)"
+                                                    placeholder="Tell us how you'd like to get involved in our community events"
+                                                ></textarea>
+                                                <p class="text-muted">Character count: <span id="charCount">0</span></p>
+                                            </div>
+
+                                            <!-- Preferences -->
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        id="newsletter"
+                                                        name="newsletter"
+                                                    />
+                                                    <label class="form-check-label" for="newsletter">
+                                                        Subscribe to our newsletter
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        id="volunteer"
+                                                        name="volunteer"
+                                                    />
+                                                    <label class="form-check-label" for="volunteer">
+                                                        Interested in volunteering
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Dietary Preferences -->
+                                            <div class="col-12">
+                                                <label class="form-label">Dietary Preferences</label>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="dietary"
+                                                        id="dietary1"
+                                                        value="none"
+                                                    />
+                                                    <label class="form-check-label" for="dietary1">
+                                                        No restrictions
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="dietary"
+                                                        id="dietary2"
+                                                        value="vegetarian"
+                                                    />
+                                                    <label class="form-check-label" for="dietary2"> Vegetarian </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="dietary"
+                                                        id="dietary3"
+                                                        value="vegan"
+                                                    />
+                                                    <label class="form-check-label" for="dietary3"> Vegan </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Join Our Community
+                                                </button>
+                                                <output id="confirmation" class="d-block mt-2"></output>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Exercise 8.2: Login Form with form-floating -->
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header bg-primary text-white">
+                                            <h3 class="h5 mb-0">Member Login</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="loginForm">
+                                                <div class="form-floating mb-3">
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id="loginEmail"
+                                                        placeholder="name@example.com"
+                                                        required
+                                                    />
+                                                    <label for="loginEmail">Email address</label>
+                                                </div>
+                                                <div class="form-floating mb-3">
+                                                    <input
+                                                        type="password"
+                                                        class="form-control"
+                                                        id="loginPassword"
+                                                        placeholder="Password"
+                                                        required
+                                                    />
+                                                    <label for="loginPassword">Password</label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="rememberMe" />
+                                                    <label class="form-check-label" for="rememberMe">
+                                                        Remember me
+                                                    </label>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                                                <div class="text-center mt-3">
+                                                    <a href="#" class="text-decoration-none">Forgot password?</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="location" class="mb-5">
+                            <h2 class="text-center mb-4">Find Nearby Events</h2>
+                            <button onclick="findNearbyEvents()" class="btn btn-primary">Find Nearby Events</button>
+                            <p id="locationStatus" class="mt-2"></p>
+                            <p id="coordinates" class="mt-2"></p>
+                        </section>
+
+                        <section id="preferences" class="mb-5">
+                            <h2 class="text-center mb-4">User Preferences</h2>
+                            <button onclick="clearPreferences()" class="btn btn-primary">Clear Preferences</button>
+                        </section>
+
+                        <!-- Exercise 3.1 and 3.2: Responsive Grid Layout -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Services</h2>
+                            <div class="row g-4">
+                                <!-- Column 1: Mobile (full width), Tablet (2 columns), Desktop (3 columns) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Community Library</h5>
+                                            <p class="card-text">
+                                                Access our extensive collection of books and digital resources.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-primary">Open Daily</span>
+                                                <button class="btn btn-sm btn-outline-primary">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Column 2: Mobile (full width), Tablet (2 columns), Desktop (3 columns) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fitness Center</h5>
+                                            <p class="card-text">
+                                                Stay active with our state-of-the-art equipment and classes.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-success">24/7 Access</span>
+                                                <button class="btn btn-sm btn-outline-success">Join Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Column 3: Mobile (full width), Tablet (2 columns), Desktop (3 columns) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Community Garden</h5>
+                                            <p class="card-text">
+                                                Grow your own produce in our community garden spaces.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">Seasonal</span>
+                                                <button class="btn btn-sm btn-outline-info">Get Plot</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Additional Grid Example with Different Breakpoints -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Events Calendar</h2>
+                            <div class="row g-4">
+                                <!-- Small screens: 1 column, Medium screens: 2 columns, Large screens: 3 columns -->
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Weekly Yoga</h5>
+                                            <p class="card-text">Every Monday, 9:00 AM</p>
+                                            <small class="text-muted">Community Center</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Book Club</h5>
+                                            <p class="card-text">Every Wednesday, 6:00 PM</p>
+                                            <small class="text-muted">Library</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Garden Workshop</h5>
+                                            <p class="card-text">Every Saturday, 10:00 AM</p>
+                                            <small class="text-muted">Community Garden</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 4.1: Two-Column Layout -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Resources</h2>
+                            <div class="row">
+                                <!-- Sidebar: 3 columns on medium and up -->
+                                <div class="col-12 col-md-3">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Quick Links</h5>
+                                        </div>
+                                        <div class="list-group list-group-flush">
+                                            <a href="#" class="list-group-item list-group-item-action"
+                                                >Community Calendar</a
+                                            >
+                                            <a href="#" class="list-group-item list-group-item-action"
+                                                >Local Services</a
+                                            >
+                                            <a href="#" class="list-group-item list-group-item-action"
+                                                >Volunteer Opportunities</a
+                                            >
+                                            <a href="#" class="list-group-item list-group-item-action"
+                                                >Community News</a
+                                            >
+                                            <a href="#" class="list-group-item list-group-item-action"
+                                                >Contact Directory</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Main Content: 9 columns on medium and up -->
+                                <div class="col-12 col-md-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Welcome to Our Community Hub</h3>
+                                            <p class="card-text">
+                                                Discover all the resources and services available in our community. From
+                                                local events to essential services, we're here to help you stay
+                                                connected and informed.
+                                            </p>
+
+                                            <div class="alert alert-info">
+                                                <h4 class="alert-heading">Latest Updates</h4>
+                                                <p>
+                                                    New community garden plots are now available for the spring season.
+                                                    Sign up early to secure your spot!
+                                                </p>
+                                            </div>
+
+                                            <div class="row g-3">
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Community Center Hours</h5>
+                                                            <p class="card-text">
+                                                                Monday - Friday: 8 AM - 8 PM<br />Saturday: 9 AM - 5
+                                                                PM<br />Sunday: 10 AM - 4 PM
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Emergency Contacts</h5>
+                                                            <p class="card-text">
+                                                                Community Security: (555) 123-4567<br />Maintenance:
+                                                                (555) 123-4568<br />Information: (555) 123-4569
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 4.2: Four-Column Layout -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Services Directory</h2>
+                            <div class="row g-4">
+                                <!-- Four equal columns on small screens and up -->
+                                <div class="col-12 col-sm-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-book fa-3x mb-3 text-primary"></i>
+                                            <h5 class="card-title">Library Services</h5>
+                                            <p class="card-text">Access books, digital resources, and study spaces.</p>
+                                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-heartbeat fa-3x mb-3 text-danger"></i>
+                                            <h5 class="card-title">Health Center</h5>
+                                            <p class="card-text">Basic health services and wellness programs.</p>
+                                            <a href="#" class="btn btn-outline-danger">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-utensils fa-3x mb-3 text-success"></i>
+                                            <h5 class="card-title">Food Bank</h5>
+                                            <p class="card-text">Access to food assistance and nutrition programs.</p>
+                                            <a href="#" class="btn btn-outline-success">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-graduation-cap fa-3x mb-3 text-info"></i>
+                                            <h5 class="card-title">Education</h5>
+                                            <p class="card-text">Adult education and skill development programs.</p>
+                                            <a href="#" class="btn btn-outline-info">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 5.1: Centered Content -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Spotlight</h2>
+                            <div class="row justify-content-center align-items-center min-vh-50 bg-light p-4 rounded">
+                                <div class="col-12 col-md-6 text-center">
+                                    <div class="card border-0 bg-transparent">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Featured Community Project</h3>
+                                            <p class="card-text">
+                                                Our community garden initiative has brought together over 100 families,
+                                                creating a sustainable space for growing fresh produce and fostering
+                                                neighborhood connections.
+                                            </p>
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <button class="btn btn-primary">Learn More</button>
+                                                <button class="btn btn-outline-primary">Get Involved</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=500"
+                                        alt="Community Garden"
+                                        class="img-fluid rounded shadow"
+                                        style="max-height: 300px; object-fit: cover"
+                                    />
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 5.2: Column Reordering -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Updates</h2>
+                            <div class="row">
+                                <!-- Image Column: First on mobile, second on medium screens -->
+                                <div class="col-12 col-md-6 order-2 order-md-1">
+                                    <div class="card h-100 border-0">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500"
+                                            alt="Community Event"
+                                            class="card-img-top"
+                                            style="height: 300px; object-fit: cover"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Upcoming Community Festival</h5>
+                                            <p class="card-text">
+                                                Join us for a day of celebration, music, and local food vendors.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Content Column: Second on mobile, first on medium screens -->
+                                <div class="col-12 col-md-6 order-1 order-md-2">
+                                    <div class="card h-100 border-0">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Latest Community News</h3>
+                                            <div class="list-group list-group-flush">
+                                                <div class="list-group-item">
+                                                    <h5>New Community Center Opening</h5>
+                                                    <p class="mb-0">Grand opening ceremony scheduled for next month.</p>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <h5>Youth Programs Registration</h5>
+                                                    <p class="mb-0">Registration now open for summer activities.</p>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <h5>Community Clean-up Day</h5>
+                                                    <p class="mb-0">Join us for our monthly neighborhood clean-up.</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <button class="btn btn-primary">View All Updates</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Additional Alignment Example -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Statistics</h2>
+                            <div class="row justify-content-between align-items-stretch g-4">
+                                <div class="col-12 col-sm-4">
+                                    <div class="card h-100 text-center">
+                                        <div class="card-body d-flex flex-column justify-content-center">
+                                            <h1 class="display-4 text-primary mb-3">500+</h1>
+                                            <h5 class="card-title">Active Members</h5>
+                                            <p class="card-text">Community members participating in events</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="card h-100 text-center">
+                                        <div class="card-body d-flex flex-column justify-content-center">
+                                            <h1 class="display-4 text-success mb-3">50+</h1>
+                                            <h5 class="card-title">Events Monthly</h5>
+                                            <p class="card-text">Regular community activities and programs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="card h-100 text-center">
+                                        <div class="card-body d-flex flex-column justify-content-center">
+                                            <h1 class="display-4 text-info mb-3">100%</h1>
+                                            <h5 class="card-title">Community Driven</h5>
+                                            <p class="card-text">Initiatives led by community members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 7.2: Card Layout with Flexbox -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Community Programs</h2>
+                            <div class="row g-4">
+                                <div class="col-12 col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="card-title mb-0">Youth Development</h5>
+                                                <span class="badge bg-primary">Popular</span>
+                                            </div>
+                                            <p class="card-text flex-grow-1">
+                                                Comprehensive programs for young community members, including sports,
+                                                arts, and educational activities.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <small class="text-muted">Ages 5-18</small>
+                                                <button class="btn btn-sm btn-outline-primary">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="card-title mb-0">Senior Activities</h5>
+                                                <span class="badge bg-success">New</span>
+                                            </div>
+                                            <p class="card-text flex-grow-1">
+                                                Engaging activities and social programs designed specifically for our
+                                                senior community members.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <small class="text-muted">Ages 60+</small>
+                                                <button class="btn btn-sm btn-outline-success">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="card-title mb-0">Adult Education</h5>
+                                                <span class="badge bg-info">Featured</span>
+                                            </div>
+                                            <p class="card-text flex-grow-1">
+                                                Skill development and educational programs for adult community members.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <small class="text-muted">All Ages</small>
+                                                <button class="btn btn-sm btn-outline-info">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="card-title mb-0">Family Programs</h5>
+                                                <span class="badge bg-warning">Limited Spots</span>
+                                            </div>
+                                            <p class="card-text flex-grow-1">
+                                                Family-oriented activities and programs to strengthen community bonds.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <small class="text-muted">All Ages</small>
+                                                <button class="btn btn-sm btn-outline-warning">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 9.1 and 9.2: Event Action Buttons -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Event Management</h2>
+
+                            <!-- Exercise 9.1: Event Action Buttons -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h3 class="h5 mb-0">Event Actions</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex flex-wrap gap-2 mb-4">
+                                        <button class="btn btn-primary">Register for Event</button>
+                                        <button class="btn btn-success">Book Tickets</button>
+                                        <button class="btn btn-warning">Add to Calendar</button>
+                                        <button class="btn btn-danger">Cancel Registration</button>
+                                        <button class="btn btn-info">Share Event</button>
+                                        <button class="btn btn-secondary">View Details</button>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Status</h4>
+                                    <div class="d-flex flex-wrap gap-2 mb-4">
+                                        <button class="btn btn-outline-success">Upcoming</button>
+                                        <button class="btn btn-outline-primary">In Progress</button>
+                                        <button class="btn btn-outline-secondary">Completed</button>
+                                        <button class="btn btn-outline-danger">Cancelled</button>
+                                        <button class="btn btn-outline-warning">Postponed</button>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Quick Actions</h4>
+                                    <div class="d-flex flex-wrap gap-2 mb-4">
+                                        <button class="btn btn-primary btn-lg">Register Now</button>
+                                        <button class="btn btn-primary">View Schedule</button>
+                                        <button class="btn btn-primary btn-sm">Get Directions</button>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Registration</h4>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-success">Register as Attendee</button>
+                                        <button class="btn btn-primary">Register as Volunteer</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 9.2: Event Filter Groups and Toggles -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h3 class="h5 mb-0">Event Filters and Preferences</h3>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="h6 mb-3">Event Categories</h4>
+                                    <div class="btn-group mb-4" role="group" aria-label="Event categories">
+                                        <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="eventCategory"
+                                            id="allCategories"
+                                            checked
+                                        />
+                                        <label class="btn btn-outline-primary" for="allCategories">All Events</label>
+
+                                        <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="eventCategory"
+                                            id="culturalEvents"
+                                        />
+                                        <label class="btn btn-outline-primary" for="culturalEvents">Cultural</label>
+
+                                        <input type="radio" class="btn-check" name="eventCategory" id="sportsEvents" />
+                                        <label class="btn btn-outline-primary" for="sportsEvents">Sports</label>
+
+                                        <input type="radio" class="btn-check" name="eventCategory" id="musicEvents" />
+                                        <label class="btn btn-outline-primary" for="musicEvents">Music</label>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Type Selection</h4>
+                                    <div class="btn-group mb-4" role="group" aria-label="Event types">
+                                        <button type="button" class="btn btn-primary">Workshops</button>
+                                        <button type="button" class="btn btn-primary">Festivals</button>
+                                        <button type="button" class="btn btn-primary">Exhibitions</button>
+                                        <button type="button" class="btn btn-primary">Performances</button>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Preferences</h4>
+                                    <div class="d-flex flex-wrap gap-3 mb-4">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="eventReminders" />
+                                            <label class="form-check-label" for="eventReminders">Event Reminders</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="eventUpdates" />
+                                            <label class="form-check-label" for="eventUpdates">Event Updates</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="similarEvents" />
+                                            <label class="form-check-label" for="similarEvents">Similar Events</label>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Actions</h4>
+                                    <div class="btn-group-vertical mb-4" role="group" aria-label="Event actions">
+                                        <button type="button" class="btn btn-outline-primary">
+                                            View Event Details
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary">Download Schedule</button>
+                                        <button type="button" class="btn btn-outline-primary">
+                                            Share with Friends
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary">Contact Organizer</button>
+                                    </div>
+
+                                    <h4 class="h6 mb-3">Event Navigation</h4>
+                                    <div class="btn-toolbar mb-4" role="toolbar" aria-label="Event navigation">
+                                        <div class="btn-group me-2" role="group" aria-label="First group">
+                                            <button type="button" class="btn btn-outline-secondary">Previous</button>
+                                            <button type="button" class="btn btn-outline-secondary">Next</button>
+                                        </div>
+                                        <div class="btn-group" role="group" aria-label="Second group">
+                                            <button type="button" class="btn btn-outline-secondary">Today</button>
+                                            <button type="button" class="btn btn-outline-secondary">Calendar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 10.1 and 10.2: Navigation Components -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Event Navigation Components</h2>
+
+                            <!-- Exercise 10.2: Tabbed Navigation -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h3 class="h5 mb-0">Event Categories</h3>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Tabs Navigation -->
+                                    <ul class="nav nav-tabs mb-4" id="eventTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button
+                                                class="nav-link active"
+                                                id="upcoming-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#upcoming"
+                                                type="button"
+                                                role="tab"
+                                            >
+                                                <i class="fas fa-calendar-day me-1"></i>Upcoming
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button
+                                                class="nav-link"
+                                                id="featured-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#featured"
+                                                type="button"
+                                                role="tab"
+                                            >
+                                                <i class="fas fa-star me-1"></i>Featured
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button
+                                                class="nav-link"
+                                                id="categories-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#categories"
+                                                type="button"
+                                                role="tab"
+                                            >
+                                                <i class="fas fa-tags me-1"></i>Categories
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Tab Content -->
+                                    <div class="tab-content" id="eventTabsContent">
+                                        <div class="tab-pane fade show active" id="upcoming" role="tabpanel">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Summer Music Festival</h5>
+                                                        <small class="text-muted">3 days</small>
+                                                    </div>
+                                                    <p class="mb-1">
+                                                        Join us for three days of amazing music and entertainment.
+                                                    </p>
+                                                    <small class="text-muted">June 15-17, 2024</small>
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Food & Wine Expo</h5>
+                                                        <small class="text-muted">2 days</small>
+                                                    </div>
+                                                    <p class="mb-1">Experience the finest local cuisine and wines.</p>
+                                                    <small class="text-muted">July 20-21, 2024</small>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="featured" role="tabpanel">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Community Art Exhibition</h5>
+                                                        <small class="text-muted">Featured</small>
+                                                    </div>
+                                                    <p class="mb-1">Showcasing local artists and their masterpieces.</p>
+                                                    <small class="text-muted">August 5-12, 2024</small>
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Tech Innovation Summit</h5>
+                                                        <small class="text-muted">Featured</small>
+                                                    </div>
+                                                    <p class="mb-1">
+                                                        Exploring the future of technology and innovation.
+                                                    </p>
+                                                    <small class="text-muted">September 10-12, 2024</small>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="categories" role="tabpanel">
+                                            <div class="nav nav-pills mb-3" id="categoryPills" role="tablist">
+                                                <button
+                                                    class="nav-link active"
+                                                    id="music-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#music"
+                                                    type="button"
+                                                >
+                                                    <i class="fas fa-music me-1"></i>Music
+                                                </button>
+                                                <button
+                                                    class="nav-link"
+                                                    id="food-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#food"
+                                                    type="button"
+                                                >
+                                                    <i class="fas fa-utensils me-1"></i>Food
+                                                </button>
+                                                <button
+                                                    class="nav-link"
+                                                    id="arts-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#arts"
+                                                    type="button"
+                                                >
+                                                    <i class="fas fa-palette me-1"></i>Arts
+                                                </button>
+                                                <button
+                                                    class="nav-link"
+                                                    id="sports-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#sports"
+                                                    type="button"
+                                                >
+                                                    <i class="fas fa-running me-1"></i>Sports
+                                                </button>
+                                            </div>
+                                            <div class="tab-content" id="categoryPillsContent">
+                                                <div class="tab-pane fade show active" id="music" role="tabpanel">
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Jazz Night</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Rock Concert</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Classical Performance</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="food" role="tabpanel">
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Food Festival</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Wine Tasting</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Cooking Workshop</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="arts" role="tabpanel">
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Art Exhibition</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Photography Show</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Sculpture Garden</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="sports" role="tabpanel">
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Marathon</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Basketball Tournament</a
+                                                        >
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                            >Swimming Competition</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 11.1 and 11.2: Cards and Media Objects -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Event Organizers and Updates</h2>
+
+                            <!-- Exercise 11.1: Profile Cards -->
+                            <div class="row g-4 mb-5">
+                                <div class="col-md-4">
+                                    <div class="card h-100 shadow-lg border border-primary border-3">
+                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500" 
+                                             class="card-img-top rounded-circle border border-3 border-primary p-2" 
+                                             alt="Event Organizer"
+                                             style="height: 200px; width: 200px; object-fit: cover; margin: 1rem auto;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">John Smith</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Music Festival Director</h6>
+                                            <p class="card-text">
+                                                Experienced event organizer with over 10 years in the industry. Specializes
+                                                in large-scale music festivals and cultural events.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary rounded-pill">
+                                                        Contact
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary rounded-pill">
+                                                        View Events
+                                                    </button>
+                                                </div>
+                                                <small class="text-muted">15 Events</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="card h-100 shadow-lg border border-success border-3">
+                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500" 
+                                             class="card-img-top rounded-circle border border-3 border-success p-2" 
+                                             alt="Event Coordinator"
+                                             style="height: 200px; width: 200px; object-fit: cover; margin: 1rem auto;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sarah Johnson</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Food Festival Coordinator</h6>
+                                            <p class="card-text">
+                                                Passionate about culinary events and community engagement. Expert in
+                                                organizing food festivals and cooking workshops.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        Contact
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        View Events
+                                                    </button>
+                                                </div>
+                                                <small class="text-muted">12 Events</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500"
+                                            class="card-img-top"
+                                            alt="Event Manager"
+                                            style="height: 200px; object-fit: cover"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Michael Chen</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Sports Event Manager</h6>
+                                            <p class="card-text">
+                                                Specializes in sports events and tournaments. Brings energy and
+                                                expertise to every community sports event.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        Contact
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        View Events
+                                                    </button>
+                                                </div>
+                                                <small class="text-muted">18 Events</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 11.2: Media Objects -->
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <h3 class="h5 mb-0">Latest Event Updates</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex mb-4">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500"
+                                            class="rounded me-3"
+                                            alt="Music Festival"
+                                            style="width: 100px; height: 100px; object-fit: cover"
+                                        />
+                                        <div>
+                                            <h5 class="mt-0">Summer Music Festival Update</h5>
+                                            <p class="mb-0">
+                                                We're excited to announce additional artists joining our lineup! The
+                                                festival will now feature three stages with continuous music throughout
+                                                the weekend.
+                                            </p>
+                                            <small class="text-muted">Posted 2 hours ago</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex mb-4">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500"
+                                            class="rounded me-3"
+                                            alt="Food Festival"
+                                            style="width: 100px; height: 100px; object-fit: cover"
+                                        />
+                                        <div>
+                                            <h5 class="mt-0">Food Festival Menu Preview</h5>
+                                            <p class="mb-0">
+                                                Get ready for a culinary journey! Our food festival will feature over 50
+                                                local vendors showcasing their signature dishes and new creations.
+                                            </p>
+                                            <small class="text-muted">Posted 5 hours ago</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=500"
+                                            class="rounded me-3"
+                                            alt="Community Event"
+                                            style="width: 100px; height: 100px; object-fit: cover"
+                                        />
+                                        <div>
+                                            <h5 class="mt-0">Community Garden Day</h5>
+                                            <p class="mb-0">
+                                                Join us for a day of gardening, workshops, and community building. We'll
+                                                be planting new seasonal vegetables and hosting educational sessions.
+                                            </p>
+                                            <small class="text-muted">Posted 1 day ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Exercise 12.1 and 12.2: Spacing Utilities -->
+                        <section class="container mb-5">
+                            <h2 class="text-center mb-4">Event Pricing Plans</h2>
+
+                            <!-- Exercise 12.1: Spacing Utilities in Layout -->
+                            <div class="row g-4 mb-5">
+                                <div class="col-12">
+                                    <div class="bg-light p-4 rounded">
+                                        <h3 class="mb-4">Why Choose Our Events?</h3>
+                                        <div class="row">
+                                            <div class="col-md-4 mb-4 mb-md-0">
+                                                <div class="p-3 bg-white rounded shadow-sm">
+                                                    <h4 class="mb-3">Community Focus</h4>
+                                                    <p class="mb-0">
+                                                        Events designed to bring people together and strengthen
+                                                        community bonds.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4 mb-md-0">
+                                                <div class="p-3 bg-white rounded shadow-sm">
+                                                    <h4 class="mb-3">Quality Experience</h4>
+                                                    <p class="mb-0">
+                                                        Professional organization and attention to detail in every
+                                                        event.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="p-3 bg-white rounded shadow-sm">
+                                                    <h4 class="mb-3">Flexible Options</h4>
+                                                    <p class="mb-0">
+                                                        Various pricing plans to suit different needs and budgets.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 12.2: Pricing Section with Spacing -->
+                            <div class="row g-4">
+                                <!-- Basic Plan -->
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-primary text-white py-4">
+                                            <h3 class="h4 mb-0 text-center">Basic Pass</h3>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="text-center mb-4">
+                                                <h4 class="display-4 mb-0">$25</h4>
+                                                <p class="text-muted">per event</p>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Access to main event area
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Basic event materials
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Community newsletter
+                                                </li>
+                                            </ul>
+                                            <div class="d-grid">
+                                                <button class="btn btn-outline-primary">Select Plan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Premium Plan -->
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-primary">
+                                        <div class="card-header bg-primary text-white py-4">
+                                            <h3 class="h4 mb-0 text-center">Premium Pass</h3>
+                                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3"
+                                                >Popular</span
+                                            >
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="text-center mb-4">
+                                                <h4 class="display-4 mb-0">$50</h4>
+                                                <p class="text-muted">per event</p>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    All Basic Pass features
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    VIP seating area
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Exclusive workshops
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Priority registration
+                                                </li>
+                                            </ul>
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary">Select Plan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- VIP Plan -->
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-primary text-white py-4">
+                                            <h3 class="h4 mb-0 text-center">VIP Pass</h3>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="text-center mb-4">
+                                                <h4 class="display-4 mb-0">$100</h4>
+                                                <p class="text-muted">per event</p>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    All Premium Pass features
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Backstage access
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Meet & greet with artists
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Complimentary refreshments
+                                                </li>
+                                                <li class="mb-3">
+                                                    <i class="fas fa-check text-success me-2"></i>
+                                                    Event merchandise
+                                                </li>
+                                            </ul>
+                                            <div class="d-grid">
+                                                <button class="btn btn-outline-primary">Select Plan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Information with Spacing -->
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="bg-light p-4 rounded">
+                                        <h3 class="mb-4">Plan Comparison</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th class="p-3">Feature</th>
+                                                        <th class="p-3 text-center">Basic</th>
+                                                        <th class="p-3 text-center">Premium</th>
+                                                        <th class="p-3 text-center">VIP</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="p-3">Event Access</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-3">VIP Seating</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-3">Backstage Access</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-3">Complimentary Refreshments</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-3">Event Merchandise</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-3">Priority Registration</td>
+                                                        <td class="p-3 text-center">-</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                        <td class="p-3 text-center">✓</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Fixed Footer with Bootstrap Icons -->
+        <footer class="bg-dark text-white text-center py-4 position-fixed bottom-0 w-100" style="z-index: 1000;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <h5 class="mb-0">
+                            <i class="bi bi-people-fill me-2"></i>Join Our Community
+                        </h5>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0">
+                            <i class="bi bi-envelope-fill me-2"></i>Stay connected with us
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="#" class="text-white fs-4" title="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="text-white fs-4" title="Twitter">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="text-white fs-4" title="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="text-white fs-4" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Add margin to main content to prevent footer overlap -->
+        <div style="margin-bottom: 100px;"></div>
+
+        <!-- Event Cards with Icon Buttons -->
+        <div class="row">
+            <!-- Row 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-primary position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500" 
+                             class="card-img-top" 
+                             alt="Community Fair"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-primary position-absolute top-0 end-0 m-3">Featured</span>
+                        <span class="badge bg-success position-absolute bottom-0 start-0 m-3">Upcoming</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">
+                            <i class="bi bi-calendar-event me-2"></i>Annual Community Fair
+                        </h5>
+                        <p class="card-text">Join us for a day of fun activities and community performances!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>June 15, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-primary rounded-pill" title="Learn More">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-success position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" 
+                             class="card-img-top" 
+                             alt="Food Festival"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3">New</span>
+                        <span class="badge bg-info position-absolute bottom-0 end-0 m-3">Limited Spots</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-success">
+                            <i class="bi bi-cup-hot me-2"></i>Food Festival
+                        </h5>
+                        <p class="card-text">Experience the finest local cuisine and culinary delights!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>July 20, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-success rounded-pill" title="Register Now">
+                                    <i class="bi bi-person-plus"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-success rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-success rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-info position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500" 
+                             class="card-img-top" 
+                             alt="Music Festival"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3">Popular</span>
+                        <span class="badge bg-secondary position-absolute bottom-0 start-0 m-3">3 Days</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">
+                            <i class="bi bi-music-note-beamed me-2"></i>Summer Music Festival
+                        </h5>
+                        <p class="card-text">Three days of amazing music and entertainment!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>August 5-7, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-info rounded-pill" title="Get Tickets">
+                                    <i class="bi bi-ticket-perforated"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-warning position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500" 
+                             class="card-img-top" 
+                             alt="Art Exhibition"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3">New</span>
+                        <span class="badge bg-primary position-absolute bottom-0 start-0 m-3">Featured</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">
+                            <i class="bi bi-palette me-2"></i>Art Exhibition
+                        </h5>
+                        <p class="card-text">Showcasing local artists and their masterpieces!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>September 10, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-warning rounded-pill" title="View Gallery">
+                                    <i class="bi bi-images"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-danger position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" 
+                             class="card-img-top" 
+                             alt="Sports Tournament"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3">Limited Time</span>
+                        <span class="badge bg-success position-absolute bottom-0 end-0 m-3">Register Now</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">
+                            <i class="bi bi-trophy me-2"></i>Sports Tournament
+                        </h5>
+                        <p class="card-text">Join our community sports tournament and win amazing prizes!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>October 15, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-danger rounded-pill" title="Register Team">
+                                    <i class="bi bi-people"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 border-secondary position-relative">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500" 
+                             class="card-img-top" 
+                             alt="Tech Workshop"
+                             style="height: 200px; object-fit: cover">
+                        <span class="badge bg-secondary position-absolute top-0 end-0 m-3">Workshop</span>
+                        <span class="badge bg-info position-absolute bottom-0 start-0 m-3">Free Entry</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">
+                            <i class="bi bi-laptop me-2"></i>Tech Workshop
+                        </h5>
+                        <p class="card-text">Learn the latest technology trends and skills!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>November 5, 2024
+                            </small>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill" title="Register">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill" title="Share">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill" title="Add to Calendar">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Details Modal -->
+        <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="eventDetailsModalLabel">
+                            <i class="bi bi-calendar-event me-2"></i>Event Details
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500" 
+                                     class="img-fluid rounded" 
+                                     alt="Event Image">
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Annual Community Fair</h4>
+                                <p class="text-muted">
+                                    <i class="bi bi-geo-alt me-2"></i>Central Community Park
+                                </p>
+                                <p class="text-muted">
+                                    <i class="bi bi-clock me-2"></i>June 15, 2024 - 10:00 AM to 8:00 PM
+                                </p>
+                                <div class="mb-3">
+                                    <h5>Event Description</h5>
+                                    <p>Join us for a day of fun activities, community performances, and local vendors. 
+                                       This annual event brings together our community for a day of celebration and connection.</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5>Highlights</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Live Music Performances</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Food Vendors</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Arts & Crafts</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Children's Activities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">
+                            <i class="bi bi-ticket-perforated me-2"></i>Get Tickets
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event FAQ Accordion -->
+        <section class="container mb-5">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="eventFAQ">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="bi bi-question-circle me-2"></i>How do I register for events?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#eventFAQ">
+                        <div class="accordion-body">
+                            <p>You can register for events in several ways:</p>
+                            <ul>
+                                <li>Click the "Register Now" button on any event card</li>
+                                <li>Visit our registration page</li>
+                                <li>Contact our event coordinators directly</li>
+                            </ul>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventDetailsModal">
+                                <i class="bi bi-info-circle me-2"></i>View Registration Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="bi bi-ticket-perforated me-2"></i>What's included in the ticket price?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#eventFAQ">
+                        <div class="accordion-body">
+                            <p>Ticket prices vary by event type and package. Generally, they include:</p>
+                            <ul>
+                                <li>Access to all main event activities</li>
+                                <li>Event materials and resources</li>
+                                <li>Complimentary refreshments (for premium tickets)</li>
+                                <li>Exclusive access to certain areas (for VIP tickets)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="bi bi-calendar-check me-2"></i>Can I get a refund if I can't attend?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#eventFAQ">
+                        <div class="accordion-body">
+                            <p>Our refund policy is as follows:</p>
+                            <ul>
+                                <li>Full refund up to 7 days before the event</li>
+                                <li>50% refund up to 3 days before the event</li>
+                                <li>No refunds within 3 days of the event</li>
+                            </ul>
+                            <p class="text-muted">Special circumstances may be considered on a case-by-case basis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="bi bi-people me-2"></i>How can I volunteer at events?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#eventFAQ">
+                        <div class="accordion-body">
+                            <p>We welcome volunteers! Here's how you can get involved:</p>
+                            <ul>
+                                <li>Fill out our volunteer application form</li>
+                                <li>Attend a volunteer orientation session</li>
+                                <li>Choose your preferred event and role</li>
+                                <li>Receive training and event details</li>
+                            </ul>
+                            <button class="btn btn-success">
+                                <i class="bi bi-person-plus me-2"></i>Become a Volunteer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add margin to prevent footer overlap -->
+        <div style="margin-bottom: 100px;"></div>
+
+        <script>
+            // Form handling
+            document.getElementById("eventForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const eventType = formData.get("eventType");
+                localStorage.setItem("preferredEventType", eventType);
+                document.getElementById("confirmation").textContent = "Registration successful!";
+                this.reset();
+            });
+
+            // Phone validation
+            document.getElementById("phone").addEventListener("blur", function () {
+                const phoneRegex = /^\d{10}$/;
+                if (!phoneRegex.test(this.value)) {
+                    alert("Please enter a valid 10-digit phone number");
+                    this.focus();
+                }
+            });
+
+            // Event fee update
+            document.getElementById("eventType").addEventListener("change", function () {
+                const fees = {
+                    fair: "$10",
+                    music: "$25",
+                    food: "$15",
+                };
+                const fee = fees[this.value] || "Select an event";
+                alert(`Event Fee: ${fee}`);
+            });
+
+            // Image zoom functionality
+            document.querySelectorAll(".card-img-top").forEach((img) => {
+                img.addEventListener("dblclick", function () {
+                    this.classList.toggle("zoomed");
+                    if (this.classList.contains("zoomed")) {
+                        this.style.transform = "scale(1.5)";
+                        this.style.zIndex = "1000";
+                    } else {
+                        this.style.transform = "scale(1)";
+                        this.style.zIndex = "1";
+                    }
+                });
+            });
+
+            // Character count for message
+            document.getElementById("message").addEventListener("keyup", function () {
+                document.getElementById("charCount").textContent = this.value.length;
+            });
+
+            // Geolocation
+            document.querySelector('button[onclick="findNearbyEvents()"]').addEventListener("click", function () {
+                if (navigator.geolocation) {
+                    const options = {
+                        enableHighAccuracy: true,
+                        timeout: 5000,
+                        maximumAge: 0,
+                    };
+
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const {latitude, longitude} = position.coords;
+                            document.getElementById(
+                                "coordinates"
+                            ).textContent = `Your location: ${latitude}, ${longitude}`;
+                            document.getElementById("locationStatus").textContent = "Finding nearby events...";
+                        },
+                        (error) => {
+                            document.getElementById("locationStatus").textContent = `Error: ${error.message}`;
+                        },
+                        options
+                    );
+                } else {
+                    document.getElementById("locationStatus").textContent =
+                        "Geolocation is not supported by your browser";
+                }
+            });
+
+            // Clear preferences
+            document.querySelector('button[onclick="clearPreferences()"]').addEventListener("click", function () {
+                localStorage.clear();
+                sessionStorage.clear();
+                alert("All preferences have been cleared");
+            });
+
+            // Video controls
+            const videoFrame = document.querySelector("iframe");
+            document.querySelector('button[onclick="toggleVideoPlay()"]').addEventListener("click", function () {
+                const iframeWindow = videoFrame.contentWindow;
+                iframeWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
+            });
+
+            // Fullscreen video
+            document
+            .querySelector("button[onclick=\"document.querySelector('iframe').requestFullscreen()\"]")
+            .addEventListener("click", function () {
+                videoFrame.requestFullscreen();
+            });
+
+            // Load saved preferences
+            window.addEventListener("load", function () {
+                const savedEventType = localStorage.getItem("preferredEventType");
+                if (savedEventType) {
+                    document.getElementById("eventType").value = savedEventType;
+                }
+            });
+
+            // Form validation before leaving
+            window.addEventListener("beforeunload", function (e) {
+                const form = document.getElementById("eventForm");
+                if (form && form.checkValidity()) {
+                    return "You have unsaved changes. Are you sure you want to leave?";
+                }
+            });
+
+            // Keyboard shortcut for fullscreen
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "f" && document.activeElement.tagName !== "INPUT") {
+                    videoFrame.requestFullscreen();
+                }
+            });
+
+            // Bootstrap form validation
+            (function () {
+                "use strict";
+                const forms = document.querySelectorAll(".needs-validation");
+                Array.from(forms).forEach((form) => {
+                    form.addEventListener(
+                        "submit",
+                        (event) => {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add("was-validated");
+                        },
+                        false
+                    );
+                });
+            })();
+        </script>
+    </body>
+</html>
