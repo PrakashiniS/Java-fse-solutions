@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Local Community Event Portal</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background-color: #f5f5f5;
+                font-family: "Roboto", sans-serif;
+            }
+
+            .gallery {
+                margin: 20px;
+            }
+
+            .gallery img {
+                width: 200px;
+                height: 150px;
+                object-fit: cover;
+                border: 2px solid #ddd;
+                margin: 5px;
+                transition: transform 0.3s ease;
+                cursor: pointer;
+            }
+
+            .gallery img:hover {
+                transform: scale(1.05);
+            }
+
+            .gallery img.zoomed {
+                transform: scale(1.5);
+                z-index: 1000;
+                position: relative;
+            }
+
+            .video-section {
+                background-color: #f8f9fa;
+                padding: 2rem 0;
+                margin: 2rem 0;
+            }
+
+            .video-container {
+                max-width: 800px;
+                margin: 20px auto;
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                z-index: 1;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 8px;
+            }
+
+            .video-description {
+                max-width: 800px;
+                margin: 1rem auto;
+                padding: 0 1rem;
+                text-align: center;
+                color: #666;
+            }
+
+            .video-controls {
+                max-width: 800px;
+                margin: 1rem auto;
+                padding: 0 1rem;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .video-controls button {
+                background-color: #007bff;
+                color: white;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .video-controls button:hover {
+                background-color: #0056b3;
+            }
+
+            .video-controls button:focus {
+                outline: 2px solid #0056b3;
+                outline-offset: 2px;
+            }
+
+            #welcomeBanner {
+                background-color: #007bff;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .highlight {
+                background-color: #ffd700;
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
+
+            .seat-count-display {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .seat-count-display h3 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .seat-count-display p {
+                color: #666;
+                font-size: 1.2em;
+            }
+
+            #seatCount {
+                font-weight: bold;
+                color: #007bff;
+                font-size: 1.4em;
+            }
+
+            .event-card {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin: 10px;
+                text-align: center;
+            }
+
+            .event-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+
+            .event-card h3 {
+                color: #333;
+                margin: 10px 0;
+            }
+
+            .event-card p {
+                color: #666;
+                margin: 5px 0;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+            .success-message {
+                color: #28a745;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #28a745;
+                border-radius: 4px;
+                background-color: #d4edda;
+            }
+
+            .error-message {
+                color: #dc3545;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #dc3545;
+                border-radius: 4px;
+                background-color: #f8d7da;
+            }
+
+            #feeDisplay {
+                font-weight: bold;
+                color: #28a745;
+                margin: 10px 0;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="mainHeader">
+            <h1 style="color: red">Welcome to Our Community Events</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="help.html" target="_blank">Help</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="welcomeBanner">
+            <h2>Join Our Community Events!</h2>
+            <p>Experience the best of local culture and community spirit</p>
+            <span class="highlight">Special Offer: First event registration is free!</span>
+        </div>
+
+        <main>
+            <section id="events">
+                <h2>Upcoming Community Events</h2>
+                <div class="gallery">
+                    <table>
+                        <tr>
+                            <td>
+                                <img
+                                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500"
+                                    alt="Community Fair"
+                                    title="Annual Community Fair"
+                                    class="event-image"
+                                    ondblclick="enlargeImage(this)"
+                                />
+                                <p>Annual Community Fair</p>
+                            </td>
+                            <td>
+                                <img
+                                    src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500"
+                                    alt="Music Festival"
+                                    title="Summer Music Festival"
+                                    class="event-image"
+                                    ondblclick="enlargeImage(this)"
+                                />
+                                <p>Summer Music Festival</p>
+                            </td>
+                            <td>
+                                <img
+                                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500"
+                                    alt="Food Festival"
+                                    title="Local Food Festival"
+                                    class="event-image"
+                                    ondblclick="enlargeImage(this)"
+                                />
+                                <p>Local Food Festival</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section id="news" class="news-section">
+                <h2>Community Updates</h2>
+                <article>
+                    <h3>Latest Community News</h3>
+                    <p>
+                        Our community is buzzing with excitement as we prepare for the upcoming summer events! Local
+                        artists have been selected to perform at the music festival, and we're proud to announce that
+                        over 50 local vendors will participate in the food festival. The community fair will feature new
+                        attractions this year, including a children's art corner and a local history exhibition.
+                    </p>
+                    <p>
+                        We're also thrilled to announce that our community garden project has received additional
+                        funding, allowing us to expand our urban farming initiatives. This year's events will include
+                        workshops on sustainable living and community gardening. Join us in making our community more
+                        vibrant and connected than ever before!
+                    </p>
+                </article>
+            </section>
+
+            <section id="eventSchedule">
+                <h2>Community Event Schedule</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Community Fair</td>
+                            <td>June 15, 2024</td>
+                            <td>Central Community Park</td>
+                        </tr>
+                        <tr>
+                            <td>Summer Music Festival</td>
+                            <td>July 20, 2024</td>
+                            <td>Downtown Community Square</td>
+                        </tr>
+                        <tr>
+                            <td>Food Festival</td>
+                            <td>August 5, 2024</td>
+                            <td>Community Waterfront</td>
+                        </tr>
+                        <tr>
+                            <td>Community Garden Day</td>
+                            <td>August 20, 2024</td>
+                            <td>Urban Community Garden</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="video" class="video-section">
+                <h2>Community Event Promo</h2>
+                <div class="video-description">
+                    <p>
+                        Watch our community festival highlights and get a glimpse of the exciting events we have planned
+                        for you!
+                    </p>
+                </div>
+                <div class="video-container">
+                    <iframe
+                        src="https://player.vimeo.com/video/824804225?h=4c8a442b42"
+                        title="Community Festival Promo"
+                        allow="autoplay; fullscreen"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+                <div class="video-controls">
+                    <button
+                        onclick="document.querySelector('.video-container iframe').requestFullscreen()"
+                        aria-label="View video in fullscreen"
+                    >
+                        Fullscreen
+                    </button>
+                    <button onclick="toggleVideoPlay()" aria-label="Play/Pause video">Play/Pause</button>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Get Involved</h2>
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            autofocus
+                            placeholder="Enter your full name"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
+                    </div>
+                    <div class="form-group">
+                        <label for="eventType">Event Type:</label>
+                        <select id="eventType" name="eventType" required>
+                            <option value="">Select an event</option>
+                            <option value="fair">Community Fair</option>
+                            <option value="music">Music Festival</option>
+                            <option value="food">Food Festival</option>
+                        </select>
+                        <div id="feeDisplay"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How would you like to participate?</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            placeholder="Tell us how you'd like to get involved in our community events"
+                        ></textarea>
+                        <p>Character count: <span id="charCount">0</span></p>
+                    </div>
+                    <button type="submit" class="btn-primary">Join Our Community</button>
+                    <div id="confirmation"></div>
+                </form>
+            </section>
+
+            <section id="location">
+                <h2>Find Nearby Events</h2>
+                <button onclick="findNearbyEvents()" class="cta-button">Find Nearby Events</button>
+                <p id="locationStatus"></p>
+                <p id="coordinates"></p>
+            </section>
+
+            <section id="preferences">
+                <h2>User Preferences</h2>
+                <button onclick="clearPreferences()" class="cta-button">Clear Preferences</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Join us in building a stronger, more vibrant community together! &copy; 2024 Local Community Events</p>
+        </footer>
+
+        <!-- Custom JavaScript -->
+        <script src="main.js"></script>
+    </body>
+</html>
